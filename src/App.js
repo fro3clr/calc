@@ -3,6 +3,8 @@ import styled from "styled-components";
 import ExpressionScreen from "./components/ExpressionScreen";
 import ButtonsPad from "./components/ButtonsPad";
 
+import evalMath from "./logic/calculate";
+
 const Calculator = styled.div`
   width: 300px;
   margin: auto;
@@ -12,6 +14,7 @@ const Calculator = styled.div`
   padding: 20px;
   background-color: #27313e;
   margin-top: 100px;
+  border: 15px solid #121213;
 `;
 
 class App extends Component {
@@ -28,6 +31,11 @@ class App extends Component {
 
     switch (button) {
       case "=":
+        let result = evalMath(currentString);
+        this.setState({
+          result: evalMath(currentString),
+          currentString: ""
+        });
         break;
       case "DEL":
         this.setState({
@@ -38,7 +46,9 @@ class App extends Component {
         this.setState({ currentString: "", result: 0 });
         break;
       default:
-        this.setState({ currentString: this.state.currentString + button });
+        this.setState({
+          currentString: this.state.currentString + button
+        });
     }
   };
 
