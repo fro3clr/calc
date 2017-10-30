@@ -1,21 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import styled from "styled-components";
+import ExpressionScreen from "./components/ExpressionScreen";
+import ButtonsPad from "./components/ButtonsPad";
 
-class App extends Component {
+const Calculator = styled.div`
+  width: 300px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 20px;
+  background-color: #27313e;
+  margin-top: 100px;
+`;
+
+class App extends Component{
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Calculator>
+        <ExpressionScreen/>
+        <ButtonsPad/>
+      </Calculator>
     );
   }
-}
+};
 
 export default App;
