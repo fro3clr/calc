@@ -23,18 +23,53 @@ const Button = styled.button`
   font-family: "Orbitron", monospace;
 `;
 
-const buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+",
-                 "-", "*", "/", "(", ")", "=", "DEL", "AC"];
+const EvaluateButton = Button.extend`
+  width: 100%;
+  color: #faab22;
+`;
+
+const buttons = [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+  "+",
+  "-",
+  "*",
+  "/",
+  "(",
+  ")",
+  "DEL",
+  "AC",
+  "="
+];
 
 class ButtonsPad extends Component {
-  handleClick = (event) => {
+  handleClick = event => {
     this.props.clickHandler(event.target.value);
-  }
+  };
 
   render() {
     return (
-      <Buttons> 
-          {buttons.map(button => <Button onClick={this.handleClick} value={button}>{button}</Button>)}
+      <Buttons>
+        {buttons.map(
+          (button, i) =>
+            buttons.length === i + 1 ? (
+              <EvaluateButton onClick={this.handleClick} value={button}>
+                {button}
+              </EvaluateButton>
+            ) : (
+              <Button onClick={this.handleClick} value={button}>
+                {button}
+              </Button>
+            )
+        )}
       </Buttons>
     );
   }

@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const Expression = styled.div`color: #fff;`;
+const Expression = styled.div`
+  color: #16a085;
+  text-shadow: 0px 0px 6px #16a085;
+`;
 
 const Result = styled.div`
   font-size: 26px;
   text-align: right;
   color: #faab22;
   text-shadow: 0px 0px 6px #faab22;
+  padding-bottom: 10px;
 `;
 
 const Screen = styled.div`
