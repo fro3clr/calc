@@ -8,7 +8,7 @@ const Buttons = styled.div`
 `;
 
 const Button = styled.button`
-  width: 65px;
+  width: 95px;
   height: 50px;
   margin: 10px 0;
   color: #16a085;
@@ -20,33 +20,21 @@ const Button = styled.button`
   cursor: pointer;
   border-bottom: 5px solkey rgba(4, 4, 5, 0.7);
   background-color: #151b22;
-  font-family: 'Orbitron', monospace;
+  font-family: "Orbitron", monospace;
 `;
 
+const buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+",
+                 "-", "*", "/", "(", ")", "=", "DEL", "AC"];
+
 class ButtonsPad extends Component {
+  handleClick = (event) => {
+    this.props.clickHandler(event.target.value);
+  }
+
   render() {
     return (
-      <Buttons>
-        <Button key="1">1</Button>
-        <Button key="2">2</Button>
-        <Button key="3">3</Button>
-        <Button key="4">4</Button>
-        <Button key="5">5</Button>
-        <Button key="6">6</Button>
-        <Button key="7">7</Button>
-        <Button key="8">8</Button>
-        <Button key="9">9</Button>
-        <Button key="0">0</Button>
-        <Button key="plus">+</Button>
-        <Button key="minus">-</Button>
-        <Button key="multiply">*</Button>
-        <Button key="div">/</Button>
-        <Button key="left-sc">(</Button>
-        <Button key="right-sc">)</Button>
-        <Button key="equals">=</Button>
-        <Button key="del">DEL</Button>
-        <Button key="ac">AC</Button>
-        <Button key="decimal">.</Button>
+      <Buttons> 
+          {buttons.map(button => <Button onClick={this.handleClick} value={button}>{button}</Button>)}
       </Buttons>
     );
   }

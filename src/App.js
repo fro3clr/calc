@@ -14,15 +14,45 @@ const Calculator = styled.div`
   margin-top: 100px;
 `;
 
-class App extends Component{
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      result: 0,
+      currentString: ""
+    };
+  }
+
+  handleClick = button => {
+    const currentString = this.state.currentString;
+
+    switch (button) {
+      case "=":
+        break;
+      case "DEL":
+        this.setState({
+          currentString: currentString.substring(0, currentString.length - 1)
+        });
+        break;
+      case "AC":
+        this.setState({ currentString: "", result: 0 });
+        break;
+      default:
+        this.setState({ currentString: this.state.currentString + button });
+    }
+  };
+
   render() {
     return (
       <Calculator>
-        <ExpressionScreen/>
-        <ButtonsPad/>
+        <ExpressionScreen
+          currentString={this.state.currentString}
+          result={this.state.result}
+        />
+        <ButtonsPad clickHandler={this.handleClick} />
       </Calculator>
     );
   }
-};
+}
 
 export default App;

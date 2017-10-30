@@ -6,8 +6,8 @@ const Expression = styled.div`color: #fff;`;
 const Result = styled.div`
   font-size: 26px;
   text-align: right;
-  color: #FAAB22;
-  text-shadow: 0px 0px 6px #FAAB22;
+  color: #faab22;
+  text-shadow: 0px 0px 6px #faab22;
 `;
 
 const Screen = styled.div`
@@ -25,8 +25,8 @@ class ExpressionScreen extends Component {
   render() {
     return (
       <Screen>
-        <Expression />
-        <Result>32132131</Result>
+        <Expression>{this.props.currentString}</Expression>
+        <Result>{this.props.result}</Result>
       </Screen>
     );
   }
