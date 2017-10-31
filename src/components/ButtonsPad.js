@@ -24,7 +24,7 @@ const Button = styled.button`
 `;
 
 const EvaluateButton = Button.extend`
-  width: 100%;
+  width: 195px;
   color: #faab22;
 `;
 
@@ -39,6 +39,7 @@ const buttons = [
   "8",
   "9",
   "0",
+  ".",
   "+",
   "-",
   "*",

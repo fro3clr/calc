@@ -22,15 +22,13 @@ function MathSolver() {
         a = resultStack.pop();
         b = resultStack.pop();
         if (postfix[i] === "+") {
-          resultStack.push(parseInt(a) + parseInt(b));
+          resultStack.push(parseFloat(a) + parseFloat(b));
         } else if (postfix[i] === "-") {
-          resultStack.push(parseInt(b) - parseInt(a));
+          resultStack.push(parseFloat(b) - parseFloat(a));
         } else if (postfix[i] === "*") {
-          resultStack.push(parseInt(a) * parseInt(b));
+          resultStack.push(parseFloat(a) * parseFloat(b));
         } else if (postfix[i] === "/") {
-          resultStack.push(parseInt(b) / parseInt(a));
-        } else if (postfix[i] === "^") {
-          resultStack.push(Math.pow(parseInt(b), parseInt(a)));
+          resultStack.push(parseFloat(b) / parseFloat(a));
         }
       }
     }
