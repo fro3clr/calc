@@ -25,15 +25,11 @@ const Screen = styled.div`
   word-wrap: break-word;
 `;
 
-class ExpressionScreen extends Component {
-  render() {
-    return (
-      <Screen>
-        <Expression>{this.props.currentString}</Expression>
-        <Result>{this.props.result}</Result>
-      </Screen>
-    );
-  }
-}
+const ExpressionScreen = ({ currentString, result }) => (
+  <Screen>
+    <Expression>{currentString}</Expression>
+    <Result>{result}</Result>
+  </Screen>
+);
 
 export default ExpressionScreen;

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import ExpressionScreen from "./components/ExpressionScreen";
 import ButtonsPad from "./components/ButtonsPad";
-
 import evalMath from "./logic/calculate";
 
 const Calculator = styled.div`
