@@ -21,6 +21,11 @@ const Button = styled.button`
   border-bottom: 5px solkey rgba(4, 4, 5, 0.7);
   background-color: #151b22;
   font-family: "Orbitron", monospace;
+
+  &:hover, &:active {
+    color: #faab22;
+    background-color: #0d0d0e;
+  }
 `;
 
 const EvaluateButton = Button.extend`
