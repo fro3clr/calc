@@ -15,12 +15,17 @@ function MathSolver() {
     let resultStack = [];
     let a, b;
     postfix = postfix.split(" ");
+    if(postfix == "") {
+      return 0;
+    }
     for (let i = 0; i < postfix.length; i++) {
       if (isNumeric(postfix[i])) {
         resultStack.push(postfix[i]);
       } else {
         a = resultStack.pop();
         b = resultStack.pop();
+
+       typeof b == "undefined" && (b = 0);
         if (postfix[i] === "+") {
           resultStack.push(parseFloat(a) + parseFloat(b));
         } else if (postfix[i] === "-") {
@@ -29,7 +34,7 @@ function MathSolver() {
           resultStack.push(parseFloat(a) * parseFloat(b));
         } else if (postfix[i] === "/") {
           resultStack.push(parseFloat(b) / parseFloat(a));
-        }
+        } else resultStack.push(a);
       }
     }
     if (resultStack.length > 1) {
@@ -40,7 +45,7 @@ function MathSolver() {
   };
 
   //Parse With The Shunting Yard Algorithm
-  this.infixToPostfix = function(infix) {
+  this.infixToPostfix = infix => {
     let outputQueue = "";
     let operatorStack = [];
     let operators = {
